@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crafty Corner - Task Tracker</title>
+<style>
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Trebuchet MS', sans-serif;
+    background: #fff7f0;
+    color: #301934;
+    margin: 0;
+    padding: 30px 15px;
+}
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px #ddd;
+}
+h1 {
+    text-align: center;
+    color: #97086e;
+    margin-bottom: 5px;
+}
+.subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 25px;
+}
+#taskForm {
+    display: flex;
+    gap: 10px;
+}
+#taskInput {
+    flex: 1;
+    min-width: 0;
+    padding: 12px;
+    border: 1px solid #c2639a;
+    border-radius: 6px;
+    font-size: 15px;
+}
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+.add-btn {
+    background: #97086e;
+    color: white;
+}
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+.filter-btn {
+    background: #f4dff0;
+    color: #740244;
+}
+.filter-btn.active {
+    background: #97086e;
+    color: white;
+}
+#taskList {
+    list-style: none;
+    padding: 0;
+}
+.task-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    margin-bottom: 10px;
+    background: #fdf3f9;
+    border-radius: 7px;
+    overflow-wrap: anywhere;
+}
+.task-text {
+    flex: 1;
+}
+.task-item.completed .task-text {
+    text-decoration: line-through;
+    color: #888;
+}
+.complete-btn {
+    background: #e4f3df;
+    color: #35652a;
+}
+.delete-btn {
+    background: #ffe3e3;
+    color: #b22222;
+}
+#counter {
+    text-align: center;
+    color: #7b3f68;
+    font-weight: bold;
+    margin-top: 20px;
+}
+.empty {
+    text-align: center;
+    color: #888;
+    padding: 15px;
+}
+@media (max-width: 480px) {
+    .container {
+        padding: 18px;
+    }
+    #taskForm {
+        flex-direction: column;
+    }
+    .add-btn {
+        width: 100%;
+    }
+    .task-item {
+        flex-wrap: wrap;
+    }
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Crafty Corner</h1>
+    <p class="subtitle">My Daily Task Tracker</p>
+    <form id="taskForm">
+        <input type="text" id="taskInput" placeholder="Enter a new task">
+        <button type="submit" class="add-btn">Add Task</button>
+    </form>
+    <div class="filters">
+        <button type="button" class="filter-btn active" data-filter="all">All Tasks</button>
+        <button type="button" class="filter-btn" data-filter="open">Pending</button>
+        <button type="button" class="filter-btn" data-filter="done">Completed</button>
+    </div>
+    <ul id="taskList"></ul>
+    <p id="counter">0 left</p>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
